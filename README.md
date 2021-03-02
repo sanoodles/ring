@@ -1,4 +1,4 @@
-# Kasaobake
+# Ring
 
 This project was generated using [Nx](https://nx.dev).
 
@@ -43,7 +43,7 @@ Run `nx g @nrwl/react:lib my-lib` to generate a library.
 
 > You can also use any of the plugins above to generate libraries as well.
 
-Libraries are sharable across libraries and applications. They can be imported from `@kasaobake/mylib`.
+Libraries are sharable across libraries and applications. They can be imported from `@ring/mylib`.
 
 ## Development server
 

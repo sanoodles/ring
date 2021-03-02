@@ -1,5 +1,5 @@
 {
-  "name": "kasaobake",
+  "name": "ring",
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
@@ -41,6 +41,7 @@
     "@babel/preset-env": "7.9.6",
     "@babel/preset-react": "7.9.4",
     "@babel/preset-typescript": "7.9.0",
+    "@contentful/rich-text-react-renderer": "^14.1.2",
     "@nrwl/cli": "11.1.5",
     "@nrwl/cypress": "11.1.5",
     "@nrwl/eslint-plugin-nx": "11.1.5",
