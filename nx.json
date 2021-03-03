@@ -30,7 +30,7 @@
       "tags": [],
       "implicitDependencies": ["kasaobake"]
     },
-    "shared-ui": {
+    "kasaobake-ui": {
       "tags": []
     }
   }

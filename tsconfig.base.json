@@ -15,7 +15,7 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ring/ui": ["libs/shared/ui/src/index.ts"]
+      "@ring/kasaobake/ui": ["libs/kasaobake/ui/src/index.ts"]
     }
   },
   "exclude": ["node_modules", "tmp"]

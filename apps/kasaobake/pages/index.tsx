@@ -1,7 +1,7 @@
 import React, { FC } from 'react'
 import { GetStaticProps } from 'next'
 
-import { ContentTemplate } from '@ring/ui'
+import { ContentTemplate } from '@ring/kasaobake/ui'
 import { IContentPage } from '../types/generated/contentful'
 import contentful from '../services/contentful'
 
