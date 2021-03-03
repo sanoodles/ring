@@ -7,6 +7,5 @@ type RichTextProps = {
 }
 
 export default function RichText({ richText }: RichTextProps) {
-  richText.content.map((data) => console.log(JSON.stringify(data)))
   return <>{documentToReactComponents(richText)}</>
 }
