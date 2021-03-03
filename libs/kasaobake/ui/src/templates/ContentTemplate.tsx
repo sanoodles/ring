@@ -1,7 +1,7 @@
 import React from 'react'
 import { Document } from '@contentful/rich-text-types'
 
-import { RichText } from '@ring/ui'
+import { RichText } from '@ring/kasaobake/ui'
 
 export default function ContentTemplate({ fields }: ContentTemplateProps) {
   return (
