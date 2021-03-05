@@ -1,31 +1,77 @@
+import Document, { Head, Html, Main, NextScript } from 'next/document'
 import React, { ReactElement } from 'react'
-import Document, { Html, Head, Main, NextScript } from 'next/document'
-import { ServerStyleSheet } from 'styled-components'
+import { ServerStyleSheet as StyledComponentSheets } from 'styled-components'
+import { ServerStyleSheets as MaterialUiServerStyleSheets } from '@material-ui/core/styles'
 
-export default class CustomDocument extends Document<{
-  styleTags: ReactElement[]
-}> {
-  static getInitialProps({ renderPage }) {
-    const sheet = new ServerStyleSheet()
-
-    const page = renderPage((App) => (props) =>
-      sheet.collectStyles(<App {...props} />),
-    )
-
-    const styleTags = sheet.getStyleElement()
-
-    return { ...page, styleTags }
-  }
-
-  render() {
+export default class MyDocument extends Document {
+  // eslint-disable-next-line class-methods-use-this
+  render(): ReactElement {
     return (
       <Html>
-        <Head>{this.props.styleTags}</Head>
+        <Head />
         <body>
           <Main />
           <NextScript />
         </body>
       </Html>
     )
+  }
+}
+
+// `getInitialProps` belongs to `_document` (instead of `_app`),
+// it's compatible with server-side generation (SSG).
+MyDocument.getInitialProps = async (ctx) => {
+  // Resolution order
+  //
+  // On the server:
+  // 1. app.getInitialProps
+  // 2. page.getInitialProps
+  // 3. document.getInitialProps
+  // 4. app.render
+  // 5. page.render
+  // 6. document.render
+  //
+  // On the server with error:
+  // 1. document.getInitialProps
+  // 2. app.render
+  // 3. page.render
+  // 4. document.render
+  //
+  // On the client
+  // 1. app.getInitialProps
+  // 2. page.getInitialProps
+  // 3. app.render
+  // 4. page.render
+
+  // Render app and page and get the context of the page with collected side effects.
+  const styledComponentSheet = new StyledComponentSheets()
+  const materialUiSheets = new MaterialUiServerStyleSheets()
+  const originalRenderPage = ctx.renderPage
+  try {
+    ctx.renderPage = () =>
+      originalRenderPage({
+        enhanceApp: (App) => (props) =>
+          styledComponentSheet.collectStyles(
+            materialUiSheets.collect(
+              <App
+                // eslint-disable-next-line react/jsx-props-no-spreading
+                {...props}
+              />,
+            ),
+          ),
+      })
+    const initialProps = await Document.getInitialProps(ctx)
+    return {
+      ...initialProps,
+      styles: [
+        <React.Fragment key="styles">
+          {initialProps.styles}
+          {materialUiSheets.getStyleElement()}
+          {styledComponentSheet.getStyleElement()}
+        </React.Fragment>,
+      ],
+    }
+  } finally {
+    styledComponentSheet.seal()
   }
 }

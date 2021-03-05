@@ -20,15 +20,15 @@ const Layout: FC<Props> = ({
       <nav>
         <Link href="/">
           <a>Home</a>
-        </Link>{' '}
-        |{' '}
+        </Link>
+        |
         <Link href="/about">
           <a>About</a>
-        </Link>{' '}
-        |{' '}
+        </Link>
+        |
         <Link href="/users">
           <a>Users List</a>
-        </Link>{' '}
+        </Link>
         | <a href="/api/users">Users API</a>
       </nav>
     </header>

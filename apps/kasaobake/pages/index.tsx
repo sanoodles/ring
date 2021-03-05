@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import React, { ReactElement } from 'react'
 import { GetStaticProps } from 'next'
 
 import { ContentTemplate } from '@ring/kasaobake/ui'
@@ -20,7 +20,7 @@ export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
   }
 }
 
-export default function IndexPage({ contentPage }: HomePageProp) {
+export default function IndexPage({ contentPage }: HomePageProp): ReactElement {
   return <ContentTemplate fields={contentPage.fields} />
 }
 
