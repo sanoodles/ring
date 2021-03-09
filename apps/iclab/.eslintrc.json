@@ -1,0 +1,1 @@
+{"parserOptions":{"project":"./tsconfig.*?.json"},"extends":"../../.eslintrc.json","ignorePatterns":["!**/*"],"rules":{"@typescript-eslint/semi":"off","import/no-unresolved":"off"}}

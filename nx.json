@@ -18,19 +18,20 @@
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e"
+        ]
       }
     }
   },
   "projects": {
-    "kasaobake": {
+    "iclab": {
       "tags": []
     },
-    "kasaobake-e2e": {
-      "tags": [],
-      "implicitDependencies": ["kasaobake"]
-    },
-    "kasaobake-ui": {
+    "iclab-ui": {
       "tags": []
     }
   }

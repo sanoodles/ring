@@ -1,7 +1,7 @@
 import React, { ReactElement } from 'react'
 import { GetStaticProps } from 'next'
 
-import { ContentTemplate } from '@ring/kasaobake/ui'
+import { ContentTemplate } from '@ring/iclab-ui'
 import { IContentPage } from '../types/generated/contentful'
 import contentful from '../services/contentful'
 

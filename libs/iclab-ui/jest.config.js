@@ -1,6 +1,6 @@
 module.exports = {
-  displayName: 'kasaobake-ui',
-  preset: '../../../jest.preset.js',
+  displayName: 'iclab-ui',
+  preset: '../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': [
       'babel-jest',
@@ -8,5 +8,5 @@ module.exports = {
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../../coverage/libs/kasaobake/ui',
+  coverageDirectory: '../../coverage/libs/iclab-ui',
 }

@@ -1,3 +1,3 @@
 module.exports = {
-  projects: ['<rootDir>/apps/kasaobake', '<rootDir>/libs/kasaobake/ui'],
+  projects: ['<rootDir>/apps/iclab', '<rootDir>/libs/iclab/ui'],
 }

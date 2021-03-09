@@ -1,9 +1,9 @@
 {
   "version": 2,
   "projects": {
-    "kasaobake": {
-      "root": "apps/kasaobake",
-      "sourceRoot": "apps/kasaobake",
+    "iclab": {
+      "root": "apps/iclab",
+      "sourceRoot": "apps/iclab",
       "projectType": "application",
       "targets": {
         "build": {
@@ -12,8 +12,8 @@
             "{options.outputPath}"
           ],
           "options": {
-            "root": "apps/kasaobake",
-            "outputPath": "dist/apps/kasaobake"
+            "root": "apps/iclab",
+            "outputPath": "dist/apps/iclab"
           },
           "configurations": {
             "production": {}
@@ -22,12 +22,12 @@
         "serve": {
           "executor": "@nrwl/next:server",
           "options": {
-            "buildTarget": "kasaobake:build",
+            "buildTarget": "iclab:build",
             "dev": true
           },
           "configurations": {
             "production": {
-              "buildTarget": "kasaobake:build:production",
+              "buildTarget": "iclab:build:production",
               "dev": false
             }
           }
@@ -35,77 +35,49 @@
         "export": {
           "executor": "@nrwl/next:export",
           "options": {
-            "buildTarget": "kasaobake:build:production"
+            "buildTarget": "iclab:build:production"
           }
         },
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "apps/kasaobake/**/*.{ts,tsx,js,jsx}"
+              "apps/iclab/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/apps/kasaobake"
+            "coverage/apps/iclab"
           ],
           "options": {
-            "jestConfig": "apps/kasaobake/jest.config.js",
+            "jestConfig": "apps/iclab/jest.config.js",
             "passWithNoTests": true
           }
         }
       }
     },
-    "kasaobake-e2e": {
-      "root": "apps/kasaobake-e2e",
-      "sourceRoot": "apps/kasaobake-e2e/src",
-      "projectType": "application",
-      "targets": {
-        "e2e": {
-          "executor": "@nrwl/cypress:cypress",
-          "options": {
-            "cypressConfig": "apps/kasaobake-e2e/cypress.json",
-            "tsConfig": "apps/kasaobake-e2e/tsconfig.e2e.json",
-            "devServerTarget": "kasaobake:serve"
-          },
-          "configurations": {
-            "production": {
-              "devServerTarget": "kasaobake:serve:production"
-            }
-          }
-        },
-        "lint": {
-          "executor": "@nrwl/linter:eslint",
-          "options": {
-            "lintFilePatterns": [
-              "apps/kasaobake-e2e/**/*.{js,ts}"
-            ]
-          }
-        }
-      }
-    },
-    "kasaobake-ui": {
-      "root": "libs/kasaobake/ui",
-      "sourceRoot": "libs/kasaobake/ui/src",
+    "iclab-ui": {
+      "root": "libs/iclab-ui",
+      "sourceRoot": "libs/iclab-ui/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/kasaobake/ui/**/*.{ts,tsx,js,jsx}"
+              "libs/iclab-ui/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/kasaobake/ui"
+            "coverage/libs/iclab-ui"
           ],
           "options": {
-            "jestConfig": "libs/kasaobake/ui/jest.config.js",
+            "jestConfig": "libs/iclab-ui/jest.config.js",
             "passWithNoTests": true
           }
         }
@@ -137,5 +109,5 @@
       }
     }
   },
-  "defaultProject": "kasaobake"
+  "defaultProject": "iclab"
 }
