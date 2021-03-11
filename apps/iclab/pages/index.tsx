@@ -7,10 +7,14 @@ import contentful from '../services/contentful'
 
 // TODO investigate if ssg works with styled-components
 
-export const getStaticProps: GetStaticProps = async ({ preview = false }) => {
+export const getStaticProps: GetStaticProps = async ({
+  locale,
+  preview = false,
+}) => {
   const entries = await contentful(preview).getEntries<IContentPage>({
     content_type: 'contentPage',
-    'fields.uid': 'home',
+    'fields.slug': 'home',
+    locale,
   })
 
   const [contentPage] = entries.items
