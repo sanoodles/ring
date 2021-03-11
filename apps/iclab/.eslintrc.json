@@ -1,1 +1,10 @@
-{"parserOptions":{"project":"./tsconfig.*?.json"},"extends":"../../.eslintrc.json","ignorePatterns":["!**/*"],"rules":{"@typescript-eslint/semi":"off","import/no-unresolved":"off"}}
+{
+  "parserOptions": { "project": "./tsconfig.*?.json" },
+  "extends": [
+    "../../.eslintrc.json",
+    "@valtech-ch/eslint-config/rules/react",
+    "@valtech-ch/eslint-config/rules/nextjs"
+  ],
+  "ignorePatterns": ["!**/*"],
+  "rules": { "@typescript-eslint/semi": "off", "import/no-unresolved": "off" }
+}
