@@ -1,5 +1,5 @@
 // atoms
-export { default as RichText } from './atoms/RichText'
+export { default as RichText } from './elements/RichText'
 
 // molecules
 
