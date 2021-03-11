@@ -18,8 +18,8 @@
     "skipDefaultLibCheck": true,
     "baseUrl": ".",
     "paths": {
-      "@ring/iclab-ui": [
-        "libs/iclab-ui/src/index.ts"
+      "@ring/iclab/ui": [
+        "libs/iclab/ui/src/index.ts"
       ]
     }
   },

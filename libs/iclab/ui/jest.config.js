@@ -1,6 +1,6 @@
 module.exports = {
   displayName: 'iclab-ui',
-  preset: '../../jest.preset.js',
+  preset: '../../../jest.preset.js',
   transform: {
     '^.+\\.[tj]sx?$': [
       'babel-jest',
@@ -8,5 +8,5 @@ module.exports = {
     ],
   },
   moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx'],
-  coverageDirectory: '../../coverage/libs/iclab-ui',
+  coverageDirectory: '../../../coverage/libs/iclab/ui',
 }

@@ -59,25 +59,25 @@
       }
     },
     "iclab-ui": {
-      "root": "libs/iclab-ui",
-      "sourceRoot": "libs/iclab-ui/src",
+      "root": "libs/iclab/ui",
+      "sourceRoot": "libs/iclab/ui/src",
       "projectType": "library",
       "targets": {
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
             "lintFilePatterns": [
-              "libs/iclab-ui/**/*.{ts,tsx,js,jsx}"
+              "libs/iclab/ui/**/*.{ts,tsx,js,jsx}"
             ]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
           "outputs": [
-            "coverage/libs/iclab-ui"
+            "coverage/libs/iclab/ui"
           ],
           "options": {
-            "jestConfig": "libs/iclab-ui/jest.config.js",
+            "jestConfig": "libs/iclab/ui/jest.config.js",
             "passWithNoTests": true
           }
         }
