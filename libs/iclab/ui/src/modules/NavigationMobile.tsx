@@ -1,4 +1,4 @@
-import { ReactElement } from 'react'
+import React, { ReactElement } from 'react'
 import Grid from '@material-ui/core/Grid'
 import Typography from '@material-ui/core/Typography'
 import MenuIcon from '@material-ui/icons/Menu'
@@ -10,9 +10,7 @@ import Container from '@material-ui/core/Container'
 import Divider from '@material-ui/core/Divider'
 import IconClose from '@material-ui/icons/Close'
 
-import type { Config } from 'types/config'
-import Link from 'components/atoms/Link'
-import Logo from './Logo'
+import Link from '../elements/Link'
 
 const DrawerMobile = styled(Drawer)`
   .MuiDrawer-paper {
@@ -21,14 +19,14 @@ const DrawerMobile = styled(Drawer)`
 `
 
 type NavigationMobileProps = {
-  config: Config
+  items: { name: string; slug: string }[]
   menuStatus: 'OPEN' | 'CLOSED'
   openMenu: () => void
   closeMenu: () => void
 }
 
 export default function NavigationMobile({
-  config,
+  items,
   menuStatus,
   openMenu,
   closeMenu,
@@ -49,9 +47,7 @@ export default function NavigationMobile({
       >
         <Container>
           <Grid container justify="space-between" alignItems="center">
-            <Grid item>
-              <Logo config={config} />
-            </Grid>
+            <Grid item>ICLab</Grid>
             <Grid item>
               <IconButton onClick={closeMenu}>
                 <IconClose />
@@ -66,16 +62,15 @@ export default function NavigationMobile({
 
         <Container>
           <Grid container direction="column" justify="center" spacing={3}>
-            {config.navigation &&
-              config.navigation.map((item) => (
-                <Grid key={item.slug} item>
-                  <Link href={`/${item.slug}`} onClick={closeMenu}>
-                    <Box px={2}>
-                      <Typography variant="subtitle1">{item.name}</Typography>
-                    </Box>
-                  </Link>
-                </Grid>
-              ))}
+            {items.map((item) => (
+              <Grid key={item.slug} item>
+                <Link href={`/${item.slug}`} onClick={closeMenu}>
+                  <Box px={2}>
+                    <Typography variant="subtitle1">{item.name}</Typography>
+                  </Box>
+                </Link>
+              </Grid>
+            ))}
           </Grid>
         </Container>
       </DrawerMobile>
