@@ -8,9 +8,7 @@
       "targets": {
         "build": {
           "executor": "@nrwl/next:build",
-          "outputs": [
-            "{options.outputPath}"
-          ],
+          "outputs": ["{options.outputPath}"],
           "options": {
             "root": "apps/iclab",
             "outputPath": "dist/apps/iclab"
@@ -41,19 +39,29 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "apps/iclab/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["apps/iclab/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/apps/iclab"
-          ],
+          "outputs": ["coverage/apps/iclab"],
           "options": {
             "jestConfig": "apps/iclab/jest.config.js",
             "passWithNoTests": true
+          }
+        },
+        "setup": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/iclab",
+            "command": "node ./contentful/setup.js $CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN"
+          }
+        },
+        "types": {
+          "builder": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "apps/iclab",
+            "command": "contentful-typescript-codegen --output types/generated/contentful.d.ts"
           }
         }
       }
@@ -66,16 +74,12 @@
         "lint": {
           "executor": "@nrwl/linter:eslint",
           "options": {
-            "lintFilePatterns": [
-              "libs/iclab/ui/**/*.{ts,tsx,js,jsx}"
-            ]
+            "lintFilePatterns": ["libs/iclab/ui/**/*.{ts,tsx,js,jsx}"]
           }
         },
         "test": {
           "executor": "@nrwl/jest:jest",
-          "outputs": [
-            "coverage/libs/iclab/ui"
-          ],
+          "outputs": ["coverage/libs/iclab/ui"],
           "options": {
             "jestConfig": "libs/iclab/ui/jest.config.js",
             "passWithNoTests": true

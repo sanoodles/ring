@@ -10,7 +10,9 @@ import Container from '@material-ui/core/Container'
 import Divider from '@material-ui/core/Divider'
 import IconClose from '@material-ui/icons/Close'
 
+import useToggle from '../hooks/useToggle'
 import Link from '../elements/Link'
+import { NavigationItem } from './Navigation'
 
 const DrawerMobile = styled(Drawer)`
   .MuiDrawer-paper {
@@ -19,27 +21,23 @@ const DrawerMobile = styled(Drawer)`
 `
 
 type NavigationMobileProps = {
-  items: { name: string; slug: string }[]
-  menuStatus: 'OPEN' | 'CLOSED'
-  openMenu: () => void
-  closeMenu: () => void
+  items: NavigationItem[]
 }
 
 export default function NavigationMobile({
   items,
-  menuStatus,
-  openMenu,
-  closeMenu,
 }: NavigationMobileProps): ReactElement {
+  const [menuStatus, { open, close }] = useToggle()
+
   return (
     <nav>
-      <IconButton onClick={openMenu}>
+      <IconButton onClick={open}>
         <MenuIcon />
       </IconButton>
       <DrawerMobile
         anchor="top"
         open={menuStatus === 'OPEN'}
-        onClose={closeMenu}
+        onClose={close}
         ModalProps={{
           // Better open performance on mobile.
           keepMounted: true,
@@ -49,7 +47,7 @@ export default function NavigationMobile({
           <Grid container justify="space-between" alignItems="center">
             <Grid item>ICLab</Grid>
             <Grid item>
-              <IconButton onClick={closeMenu}>
+              <IconButton onClick={close}>
                 <IconClose />
               </IconButton>
             </Grid>
@@ -64,9 +62,9 @@ export default function NavigationMobile({
           <Grid container direction="column" justify="center" spacing={3}>
             {items.map((item) => (
               <Grid key={item.slug} item>
-                <Link href={`/${item.slug}`} onClick={closeMenu}>
+                <Link href={`/${item.slug}`} onClick={close}>
                   <Box px={2}>
-                    <Typography variant="subtitle1">{item.name}</Typography>
+                    <Typography variant="subtitle1">{item.title}</Typography>
                   </Box>
                 </Link>
               </Grid>

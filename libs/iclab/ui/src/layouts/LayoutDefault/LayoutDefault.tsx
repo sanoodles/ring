@@ -4,7 +4,8 @@ import Container from '@material-ui/core/Container'
 import styled from 'styled-components'
 // import Button from '@material-ui/core/Button'
 
-import type { Config } from 'types/config'
+import { NavigationItem } from '../../modules/Navigation'
+
 import Meta from '../Meta'
 // import exitPreview from 'services/api/preview/exitPreview'
 import Header from './Header'
@@ -14,19 +15,18 @@ const ContainerStyled = styled(Container)`
   display: flex;
   min-height: calc(100vh - 88px);
   flex-direction: column;
-  margin-bottom: ${({ theme }) => theme.spacing(6)}px;
 `
 
 type LayoutDefaultProps = {
-  preview: boolean
-  config: Config
+  // preview: boolean
   children: ReactNode
+  navigationItems: NavigationItem[]
 }
 
 export default function LayoutDefault({
-  preview,
-  config,
+  // preview,
   children,
+  navigationItems,
 }: LayoutDefaultProps): ReactElement {
   // const router = useRouter()
 
@@ -46,12 +46,12 @@ export default function LayoutDefault({
       )} */}
 
       <ContainerStyled>
-        <Header config={config} />
+        <Header navigationItems={navigationItems} />
         <main>{children}</main>
       </ContainerStyled>
 
       <Container>
-        <Footer config={config} />
+        <Footer navigationItems={navigationItems} />
       </Container>
     </>
   )

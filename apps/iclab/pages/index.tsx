@@ -2,32 +2,48 @@ import React, { ReactElement } from 'react'
 import { GetStaticProps } from 'next'
 
 import { ContentTemplate } from '@ring/iclab/ui'
-import { IContentPage } from '../types/generated/contentful'
+import { IContentPage, IConfig } from '../types/generated/contentful'
 import contentful from '../services/contentful'
-
-// TODO investigate if ssg works with styled-components
+import selectNavigationItems from '../services/contentful/selectNavigationItems'
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
   preview = false,
 }) => {
-  const entries = await contentful(preview).getEntries<IContentPage>({
-    content_type: 'contentPage',
-    'fields.slug': 'home',
-    locale,
-  })
+  const [configEntries, contentPageEntries] = await Promise.all([
+    contentful(preview).getEntries<IContentPage>({
+      content_type: 'config',
+      locale,
+    }),
+    contentful(preview).getEntries<IContentPage>({
+      content_type: 'contentPage',
+      'fields.slug': 'home',
+      locale,
+    }),
+  ])
 
-  const [contentPage] = entries.items
+  const [config] = configEntries.items
+  const [contentPage] = contentPageEntries.items
 
   return {
-    props: { contentPage },
+    props: { config, contentPage },
   }
 }
 
-export default function IndexPage({ contentPage }: HomePageProp): ReactElement {
-  return <ContentTemplate fields={contentPage.fields} />
+export default function HomePage({
+  config,
+  contentPage,
+}: HomePageProp): ReactElement {
+  const navigationItems = selectNavigationItems(config)
+  return (
+    <ContentTemplate
+      navigationItems={navigationItems}
+      fields={contentPage.fields}
+    />
+  )
 }
 
 type HomePageProp = {
+  config: IConfig
   contentPage: IContentPage
 }

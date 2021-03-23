@@ -3,15 +3,12 @@
 import { Asset, Entry } from 'contentful'
 import { Document } from '@contentful/rich-text-types'
 
-export interface IButtonFields {
-  /** text */
-  text: string
-
-  /** type */
-  type?: string | undefined
+export interface IConfigFields {
+  /** Navigation */
+  navigation?: Entry<{ [fieldId: string]: unknown }>[] | undefined
 }
 
-export interface IButton extends Entry<IButtonFields> {
+export interface IConfig extends Entry<IConfigFields> {
   sys: {
     id: string
     type: string
@@ -20,7 +17,7 @@ export interface IButton extends Entry<IButtonFields> {
     locale: string
     contentType: {
       sys: {
-        id: 'button'
+        id: 'config'
         linkType: 'ContentType'
         type: 'Link'
       }
@@ -36,7 +33,7 @@ export interface IContentPageFields {
   slug: string
 
   /** Text */
-  text?: Document | undefined
+  text: Document
 }
 
 export interface IContentPage extends Entry<IContentPageFields> {
@@ -56,8 +53,8 @@ export interface IContentPage extends Entry<IContentPageFields> {
   }
 }
 
-export type CONTENT_TYPE = 'button' | 'contentPage'
+export type CONTENT_TYPE = 'config' | 'contentPage'
 
-export type LOCALE_CODE = 'de' | 'en-US'
+export type LOCALE_CODE = 'de' | 'en'
 
-export type CONTENTFUL_DEFAULT_LOCALE_CODE = 'en-US'
+export type CONTENTFUL_DEFAULT_LOCALE_CODE = 'en'
