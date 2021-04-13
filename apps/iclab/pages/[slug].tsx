@@ -27,7 +27,7 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
 
   contentPageEntriesPerLocale.forEach((contentPageEntries) => {
     contentPageEntries.items.forEach((item) => {
-      paths.push(`/${item.fields.slug}`)
+      paths.push(`/${item.sys.locale}/${item.fields.slug}`)
     })
   })
 
