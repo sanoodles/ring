@@ -10,13 +10,13 @@ module.exports = withNx({
     return [
       // about
       {
-        source: '/de/about',
+        source: '/de/about-us',
         destination: '/de/uber-uns',
         locale: false,
       },
       {
         source: '/en/uber-uns',
-        destination: '/en/about',
+        destination: '/en/about-us',
         locale: false,
       },
       // contact
