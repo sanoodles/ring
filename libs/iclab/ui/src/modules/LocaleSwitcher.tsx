@@ -13,7 +13,7 @@ export default function LocaleSwitcher(): ReactElement {
     return (
       <DIV>
         {router.locales.map((locale) => (
-          <Link href="/" locale={locale} key={locale}>
+          <Link href={router.asPath} locale={locale} key={locale}>
             {locale}
           </Link>
         ))}

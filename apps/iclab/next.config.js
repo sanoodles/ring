@@ -6,4 +6,30 @@ module.exports = withNx({
     locales: ['en', 'de'],
     defaultLocale: 'en',
   },
+  async rewrites() {
+    return [
+      // about
+      {
+        source: '/de/about',
+        destination: '/de/uber-uns',
+        locale: false,
+      },
+      {
+        source: '/en/uber-uns',
+        destination: '/en/about',
+        locale: false,
+      },
+      // contact
+      {
+        source: '/de/contact',
+        destination: '/de/kontakt',
+        locale: false,
+      },
+      {
+        source: '/en/kontakt',
+        destination: '/en/contact',
+        locale: false,
+      },
+    ]
+  },
 })
