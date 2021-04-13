@@ -1,5 +1,6 @@
 import React, { ReactElement } from 'react'
 import { GetStaticProps } from 'next'
+import Error from 'next/error'
 
 import { ContentTemplate } from '@ring/iclab/ui'
 import { IContentPage, IConfig } from '../types/generated/contentful'
@@ -25,6 +26,12 @@ export const getStaticProps: GetStaticProps = async ({
   const [config] = configEntries.items
   const [contentPage] = contentPageEntries.items
 
+  if (!config || !contentPage) {
+    return {
+      props: {},
+    }
+  }
+
   return {
     props: { config, contentPage },
   }
@@ -34,6 +41,10 @@ export default function HomePage({
   config,
   contentPage,
 }: HomePageProp): ReactElement {
+  if (!config || !contentPage) {
+    return <Error statusCode={404} />
+  }
+
   const navigationItems = selectNavigationItems(config)
   return (
     <ContentTemplate

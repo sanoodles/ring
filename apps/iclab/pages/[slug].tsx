@@ -57,7 +57,7 @@ export const getStaticProps: GetStaticProps = async ({
   const [config] = configEntries.items
   const [contentPage] = contentPageEntries.items
 
-  if (!contentPage) {
+  if (!config || !contentPage) {
     return {
       props: {},
     }
