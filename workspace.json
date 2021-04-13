@@ -51,14 +51,14 @@
           }
         },
         "setup": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "cwd": "apps/iclab",
             "command": "node ./contentful/setup.js $CONTENTFUL_SPACE_ID $CONTENTFUL_MANAGEMENT_TOKEN"
           }
         },
         "types": {
-          "builder": "@nrwl/workspace:run-commands",
+          "executor": "@nrwl/workspace:run-commands",
           "options": {
             "cwd": "apps/iclab",
             "command": "npx contentful-typescript-codegen --output types/generated/contentful.d.ts"

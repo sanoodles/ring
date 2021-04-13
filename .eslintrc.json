@@ -27,9 +27,6 @@
         "plugin:@nrwl/nx/typescript",
         "@valtech-ch/eslint-config/rules/react"
       ],
-      "parserOptions": {
-        "project": "./tsconfig.*?.json"
-      },
       "rules": {}
     },
     {

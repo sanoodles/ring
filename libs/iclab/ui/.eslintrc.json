@@ -1,1 +1,25 @@
-{"extends":"../../../.eslintrc.json","ignorePatterns":["!**/*"],"rules":{"@typescript-eslint/semi":"off","import/no-unresolved":"off"}}
+{
+  "extends": "../../../.eslintrc.json",
+  "ignorePatterns": ["!**/*"],
+  "rules": {
+    "@typescript-eslint/semi": "off",
+    "import/no-unresolved": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["libs/iclab/ui/tsconfig.*?.json"]
+      },
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
+}

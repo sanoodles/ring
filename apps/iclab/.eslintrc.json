@@ -1,10 +1,32 @@
 {
-  "parserOptions": { "project": "./tsconfig.*?.json" },
+  "parserOptions": {
+    "project": "./tsconfig.*?.json"
+  },
   "extends": [
     "../../.eslintrc.json",
     "@valtech-ch/eslint-config/rules/react",
     "@valtech-ch/eslint-config/rules/nextjs"
   ],
   "ignorePatterns": ["!**/*"],
-  "rules": { "@typescript-eslint/semi": "off", "import/no-unresolved": "off" }
+  "rules": {
+    "@typescript-eslint/semi": "off",
+    "import/no-unresolved": "off"
+  },
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
+      "parserOptions": {
+        "project": ["apps/iclab/tsconfig(.*)?.json"]
+      },
+      "rules": {}
+    },
+    {
+      "files": ["*.ts", "*.tsx"],
+      "rules": {}
+    },
+    {
+      "files": ["*.js", "*.jsx"],
+      "rules": {}
+    }
+  ]
 }
