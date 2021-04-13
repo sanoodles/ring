@@ -6,6 +6,7 @@ import { ContentTemplate } from '@ring/iclab/ui'
 import { IContentPage, IConfig } from '../types/generated/contentful'
 import contentful from '../services/contentful'
 import selectNavigationItems from '../services/contentful/selectNavigationItems'
+import { routes } from '../config'
 
 export const getStaticProps: GetStaticProps = async ({
   locale,
@@ -50,6 +51,7 @@ export default function HomePage({
     <ContentTemplate
       navigationItems={navigationItems}
       fields={contentPage.fields}
+      routes={routes}
     />
   )
 }

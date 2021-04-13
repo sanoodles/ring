@@ -10,6 +10,7 @@ import {
 } from '../types/generated/contentful'
 import contentful from '../services/contentful'
 import selectNavigationItems from '../services/contentful/selectNavigationItems'
+import { routes } from '../config'
 
 export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   const preview = false
@@ -24,7 +25,6 @@ export const getStaticPaths: GetStaticPaths = async ({ locales }) => {
   )
 
   const paths = []
-
   contentPageEntriesPerLocale.forEach((contentPageEntries) => {
     contentPageEntries.items.forEach((item) => {
       paths.push(`/${item.sys.locale}/${item.fields.slug}`)
@@ -81,11 +81,12 @@ export default function ContentPage({
     <ContentTemplate
       navigationItems={navigationItems}
       fields={contentPage.fields}
+      routes={routes}
     />
   )
 }
 
-type ContentPageProps = {
+export type ContentPageProps = {
   config: IConfig
   contentPage: IContentPage
 }

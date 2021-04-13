@@ -4,6 +4,7 @@ import Container from '@material-ui/core/Container'
 import styled from 'styled-components'
 // import Button from '@material-ui/core/Button'
 
+import { Routes } from '../../types'
 import { NavigationItem } from '../../modules/Navigation'
 
 import Meta from '../Meta'
@@ -21,12 +22,14 @@ type LayoutDefaultProps = {
   // preview: boolean
   children: ReactNode
   navigationItems: NavigationItem[]
+  routes: Routes
 }
 
 export default function LayoutDefault({
   // preview,
   children,
   navigationItems,
+  routes,
 }: LayoutDefaultProps): ReactElement {
   // const router = useRouter()
 
@@ -46,7 +49,7 @@ export default function LayoutDefault({
       )} */}
 
       <ContainerStyled>
-        <Header navigationItems={navigationItems} />
+        <Header navigationItems={navigationItems} routes={routes} />
         <main>{children}</main>
       </ContainerStyled>
 

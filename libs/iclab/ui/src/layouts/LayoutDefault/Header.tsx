@@ -5,12 +5,17 @@ import Link from '../../elements/Link'
 import Navigation, { NavigationItem } from '../../modules/Navigation'
 import NavigationMobile from '../../modules/NavigationMobile'
 import LocaleSwitcher from '../../modules/LocaleSwitcher'
+import { Routes } from '../../types'
 
 type HeaderProps = {
   navigationItems: NavigationItem[]
+  routes: Routes
 }
 
-export default function Header({ navigationItems }: HeaderProps): ReactElement {
+export default function Header({
+  navigationItems,
+  routes,
+}: HeaderProps): ReactElement {
   return (
     <header>
       <Grid
@@ -27,7 +32,7 @@ export default function Header({ navigationItems }: HeaderProps): ReactElement {
           <Navigation items={navigationItems} />
         </Hidden>
         <div>
-          <LocaleSwitcher />
+          <LocaleSwitcher routes={routes} />
         </div>
       </Grid>
     </header>
