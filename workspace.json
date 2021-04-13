@@ -61,7 +61,7 @@
           "builder": "@nrwl/workspace:run-commands",
           "options": {
             "cwd": "apps/iclab",
-            "command": "contentful-typescript-codegen --output types/generated/contentful.d.ts"
+            "command": "npx contentful-typescript-codegen --output types/generated/contentful.d.ts"
           }
         }
       }
