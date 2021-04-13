@@ -4,6 +4,7 @@ import Hidden from '@material-ui/core/Hidden'
 import Link from '../../elements/Link'
 import Navigation, { NavigationItem } from '../../modules/Navigation'
 import NavigationMobile from '../../modules/NavigationMobile'
+import LocaleSwitcher from '../../modules/LocaleSwitcher'
 
 type HeaderProps = {
   navigationItems: NavigationItem[]
@@ -25,7 +26,9 @@ export default function Header({ navigationItems }: HeaderProps): ReactElement {
         <Hidden xsDown>
           <Navigation items={navigationItems} />
         </Hidden>
-        <div>{/* <LocaleSwitcher /> */}</div>
+        <div>
+          <LocaleSwitcher />
+        </div>
       </Grid>
     </header>
   )
