@@ -1,6 +1,9 @@
 // elements
 export { default as RichText } from './elements/RichText'
 
+// layouts
+export { default as LayoutDefault } from './layouts/LayoutDefault/LayoutDefault'
+
 // modules
 export type { NavigationItem } from './modules/Navigation'
 

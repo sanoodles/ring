@@ -13,7 +13,7 @@ export const getStaticProps: GetStaticProps = async ({
   preview = false,
 }) => {
   const [configEntries, contentPageEntries] = await Promise.all([
-    contentful(preview).getEntries<IContentPage>({
+    contentful(preview).getEntries<IConfig>({
       content_type: 'config',
       locale,
     }),

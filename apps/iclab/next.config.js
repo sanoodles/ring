@@ -6,4 +6,12 @@ module.exports = withNx({
     locales: ['en', 'de'],
     defaultLocale: 'en',
   },
+  async rewrites() {
+    return [
+      {
+        source: '/api/saas/:slug*',
+        destination: `https://test-search-admin.infocentric.swiss/api/:slug*`,
+      },
+    ]
+  },
 })
