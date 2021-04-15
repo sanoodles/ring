@@ -89,6 +89,13 @@
             "passWithNoTests": true
           }
         },
+        "types": {
+          "executor": "@nrwl/workspace:run-commands",
+          "options": {
+            "cwd": "libs/iclab/ui",
+            "command": "npx contentful-typescript-codegen --output src/types/generated/contentful.d.ts"
+          }
+        },
         "storybook": {
           "executor": "@nrwl/storybook:storybook",
           "options": {
