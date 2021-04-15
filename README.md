@@ -1,21 +1,19 @@
 # Ring
 
-## Install
+To rule them all.
 
-Install dependencies:
+Ring is a project to have fun building websites following a design system with reusable building blocks.
 
-    yarn install
+## Monorepo architecture
 
-Create `.env.local` file with the required environment variables:
+    - apps
+      - iclab: Next.js App
 
-    cp .env.example .env.local
+    - libs
+      - iclab
+        - ui: React Library of components with the ICLab styling
+      - shared
+        - ui: React Library of components without styling
 
-If you want to use the existing Contentful project, ask [@lorenzogm](https://github.com/lorenzogm) to get the credentials.
-
-## Development
-
-Start the development server:
-
-    yarn nx serve iclab
-
-Open `http://localhost:4200`
+- [Contentful](docs/contentful.md)
+- [ICLab](apps/iclab/README.md)
