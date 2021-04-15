@@ -5,7 +5,7 @@ import { Document } from '@contentful/rich-text-types'
 
 export interface IButtonFields {
   /** Title */
-  title?: string | undefined
+  title: string
 
   /** Link */
   link: IContentPage
