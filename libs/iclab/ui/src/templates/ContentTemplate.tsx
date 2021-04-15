@@ -1,10 +1,11 @@
 import React, { ReactElement } from 'react'
-import { Document } from '@contentful/rich-text-types'
 
 import LayoutDefault from '../layouts/LayoutDefault/LayoutDefault'
 import RichText from '../elements/RichText'
 import { NavigationItem } from '../modules/Navigation'
 import { Routes } from '../types'
+import { IContentPageFields } from '../../types/generated/contentful'
+import Teaser from '../modules/Teaser'
 
 export default function ContentTemplate({
   navigationItems,
@@ -13,6 +14,18 @@ export default function ContentTemplate({
 }: ContentTemplateProps): ReactElement {
   return (
     <LayoutDefault navigationItems={navigationItems} routes={routes}>
+      {fields.sections.map((section) => {
+        switch (section.sys.contentType.sys.id) {
+          case 'teaser':
+            return <Teaser />
+
+          default:
+            console.error(
+              `Unexpected section type "${section.sys.contentType.sys.id}"`,
+            )
+            return null
+        }
+      })}
       <RichText richText={fields.text} />
     </LayoutDefault>
   )
@@ -20,10 +33,6 @@ export default function ContentTemplate({
 
 type ContentTemplateProps = {
   navigationItems: NavigationItem[]
-  fields: ContentPage
+  fields: IContentPageFields
   routes: Routes
-}
-
-type ContentPage = {
-  text?: Document
 }

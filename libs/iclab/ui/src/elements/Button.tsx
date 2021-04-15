@@ -1,4 +1,3 @@
-import NextImage from 'next/image'
+import Button from '@material-ui/core/Button'
 
-export default NextImage
-
+export default Button
