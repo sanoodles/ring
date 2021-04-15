@@ -9,9 +9,14 @@
     {
       "files": ["*.ts", "*.tsx", "*.js", "*.jsx"],
       "parserOptions": {
-        "project": ["libs/iclab/ui/tsconfig.*?.json"]
+        "project": [
+          "libs/iclab/ui/tsconfig.*?.json",
+          "libs/iclab/ui/.storybook/tsconfig.json"
+        ]
       },
-      "rules": {}
+      "rules": {
+        "react/react-in-jsx-scope": "off"
+      }
     },
     {
       "files": ["*.ts", "*.tsx"],

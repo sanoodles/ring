@@ -1,3 +1,6 @@
+export * from './components/rich-text/RichText'
+export * from './components/button/Button'
+export * from './components/teaser/Teaser'
 // elements
 export { default as RichText } from './elements/RichText'
 

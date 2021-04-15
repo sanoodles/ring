@@ -1,33 +1,31 @@
 {
-  "npmScope": "ring",
-  "affected": {
-    "defaultBase": "master"
-  },
   "implicitDependencies": {
     "workspace.json": "*",
-    "package.json": {
-      "dependencies": "*",
-      "devDependencies": "*"
-    },
+    "package.json": { "dependencies": "*", "devDependencies": "*" },
     "tsconfig.base.json": "*",
     "tslint.json": "*",
     ".eslintrc.json": "*",
     "nx.json": "*"
   },
+  "affected": { "defaultBase": "master" },
+  "npmScope": "ring",
   "tasksRunnerOptions": {
     "default": {
       "runner": "@nrwl/workspace/tasks-runners/default",
       "options": {
-        "cacheableOperations": ["build", "lint", "test", "e2e"]
+        "cacheableOperations": [
+          "build",
+          "lint",
+          "test",
+          "e2e",
+          "build-storybook"
+        ]
       }
     }
   },
   "projects": {
-    "iclab": {
-      "tags": []
-    },
-    "iclab-ui": {
-      "tags": []
-    }
+    "iclab": { "tags": [] },
+    "iclab-ui": { "tags": [] },
+    "iclab-ui-e2e": { "tags": [], "implicitDependencies": ["iclab-ui"] }
   }
 }
