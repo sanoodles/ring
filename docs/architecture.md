@@ -4,7 +4,7 @@ Ring is built as a monorepo to be able to hold several applications and librarie
 
 ### Applications
 
-Several application can be built together in this monorepo:
+Several applications can be built together in this monorepo:
 
     - iclab: A Next.js application to build a demo website.
 
