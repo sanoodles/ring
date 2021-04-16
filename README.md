@@ -4,7 +4,7 @@ To rule them all.
 
 Ring is a project with two main purposes:
 
-- Explore the capabilities and limitations of Contentful as CMS.
+- Explore the capabilities of Contentful as CMS.
 - Build a library of Core Components to speed up the process of building web applications with React and Contentful.
 
 ## Stack
