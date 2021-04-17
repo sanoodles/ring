@@ -59,7 +59,7 @@ Start the development server:
 
 Open `http://localhost:4400`
 
-## Typescript
+## TypeScript
 
 Generate the types from Contentful:
 
