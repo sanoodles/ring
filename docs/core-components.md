@@ -7,7 +7,7 @@ Let's conside the following 2 mental models:
 1. A library of components like Material UI or AntD, there are dozens on Internet and there is no need to create and maintain a new one. They have a high level of abstraction and they can be used in many projects.
 2. On your next project you end up creating your own library of components. Probably you are already using one of those already made libraries defined at 1). However, you made some decisions about content and design to create a set of components ready to use in your project.
 
-The proposal for this library of Core Components is to make the library defined in 2) shareble across projects within the same company.
+The proposal for this library of Core Components is to make the library defined in 2) shareable across projects within the same company.
 
 In our case, we have made a couple decisions to speead up the development process:
 
