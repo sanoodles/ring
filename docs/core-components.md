@@ -17,7 +17,7 @@ In our case, we have made a couple decisions to speead up the development proces
 
 ## Pages
 
-Once the Core Components are defined. The next step is to build the pages combining the Core Components as building blocks.
+Once the Core Components are defined, the next step is to build the pages combining the Core Components as building blocks.
 
 There are 2 categories of pages defined in the CMS: Content Pages and Custom Pages.
 
