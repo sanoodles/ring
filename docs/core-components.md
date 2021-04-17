@@ -12,7 +12,7 @@ The proposal for this library of Core Components is to make the library defined 
 In our case, we have made a couple decisions to speead up the development process:
 
 - Contentful is our CMS, so the components must match the content structure defined in Contentful. The content structure defined is shareable across projects with the import/export functions of Contentful.
-- A default design is provided, however if the new project has different content/design requirements, new variants of the component can be added without affecting the existing variants. All the variants will be added to the library, so chances that an existing variant match the requirements of the very new project increase.
+- A default design is provided, however if the new project has different content/design requirements, new variants of the component can be added without affecting the existing variants. All the variants will be added to the library, so chances that an existing variant matches the requirements of the very new project increase.
 - As the Core Components is a publishable library, version control would help to use the same package across different projects without breaking them.
 
 ## Pages
